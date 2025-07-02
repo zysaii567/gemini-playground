@@ -5,6 +5,7 @@ import { CONFIG } from './config/config.js';
 import { Logger } from './utils/logger.js';
 import { VideoManager } from './video/video-manager.js';
 import { ScreenRecorder } from './video/screen-recorder.js';
+import { languages } from './language-selector.js';
 
 /**
  * @fileoverview Main entry point for the application.
@@ -29,6 +30,7 @@ const screenPreview = document.getElementById('screen-preview');
 const inputAudioVisualizer = document.getElementById('input-audio-visualizer');
 const apiKeyInput = document.getElementById('api-key');
 const voiceSelect = document.getElementById('voice-select');
+const languageSelect = document.getElementById('language-select');
 const fpsInput = document.getElementById('fps-input');
 const configToggle = document.getElementById('config-toggle');
 const configContainer = document.getElementById('config-container');
@@ -40,6 +42,7 @@ const responseTypeSelect = document.getElementById('response-type-select');
 // Load saved values from localStorage
 const savedApiKey = localStorage.getItem('gemini_api_key');
 const savedVoice = localStorage.getItem('gemini_voice');
+const savedLanguage = localStorage.getItem('gemini_language');
 const savedFPS = localStorage.getItem('video_fps');
 const savedSystemInstruction = localStorage.getItem('system_instruction');
 
@@ -50,6 +53,17 @@ if (savedApiKey) {
 if (savedVoice) {
     voiceSelect.value = savedVoice;
 }
+
+if (savedLanguage) {
+    languageSelect.value = savedLanguage;
+}
+
+languages.forEach(lang => {
+    const option = document.createElement('option');
+    option.value = lang.code;
+    option.textContent = lang.name;
+    languageSelect.appendChild(option);
+});
 
 if (savedFPS) {
     fpsInput.value = savedFPS;
@@ -251,6 +265,7 @@ async function connectToWebsocket() {
     // Save values to localStorage
     localStorage.setItem('gemini_api_key', apiKeyInput.value);
     localStorage.setItem('gemini_voice', voiceSelect.value);
+    localStorage.setItem('gemini_language', languageSelect.value);
     localStorage.setItem('system_instruction', systemInstructionInput.value);
 
     const config = {
@@ -258,6 +273,7 @@ async function connectToWebsocket() {
         generationConfig: {
             responseModalities: responseTypeSelect.value,
             speechConfig: {
+                languageCode: languageSelect.value,
                 voiceConfig: { 
                     prebuiltVoiceConfig: { 
                         voiceName: voiceSelect.value    // You can change voice in the config.js file
@@ -555,4 +571,3 @@ function stopScreenSharing() {
 
 screenButton.addEventListener('click', handleScreenShare);
 screenButton.disabled = true;
-  
