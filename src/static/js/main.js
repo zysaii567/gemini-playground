@@ -54,16 +54,16 @@ if (savedVoice) {
     voiceSelect.value = savedVoice;
 }
 
-if (savedLanguage) {
-    languageSelect.value = savedLanguage;
-}
-
 languages.forEach(lang => {
     const option = document.createElement('option');
     option.value = lang.code;
     option.textContent = lang.name;
     languageSelect.appendChild(option);
 });
+
+if (savedLanguage) {
+    languageSelect.value = savedLanguage;
+}
 
 if (savedFPS) {
     fpsInput.value = savedFPS;
