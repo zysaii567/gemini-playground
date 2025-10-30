@@ -1,9 +1,9 @@
 const languages = [
-    { name: 'English (US)', code: 'en-US' },
     { name: 'Mandarin Chinese (China)', code: 'cmn-CN' },
-    { name: 'English (Australia)', code: 'en-AU' },
-    { name: 'English (UK)', code: 'en-GB' },
-    { name: 'English (India)', code: 'en-IN' },
+    { name: 'English (US)', code: 'en-US' },
+    { name: 'Japanese (Japan)', code: 'ja-JP' },
+    { name: 'Russian (Russia)', code: 'ru-RU' },
+    { name: 'Vietnamese (Vietnam)', code: 'vi-VN' },
     { name: 'German (Germany)', code: 'de-DE' },
     { name: 'Spanish (US)', code: 'es-US' },
     { name: 'French (France)', code: 'fr-FR' },
@@ -14,9 +14,7 @@ const languages = [
     { name: 'French (Canada)', code: 'fr-CA' },
     { name: 'Indonesian (Indonesia)', code: 'id-ID' },
     { name: 'Italian (Italy)', code: 'it-IT' },
-    { name: 'Japanese (Japan)', code: 'ja-JP' },
     { name: 'Turkish (Turkey)', code: 'tr-TR' },
-    { name: 'Vietnamese (Vietnam)', code: 'vi-VN' },
     { name: 'Bengali (India)', code: 'bn-IN' },
     { name: 'Gujarati (India)', code: 'gu-IN' },
     { name: 'Kannada (India)', code: 'kn-IN' },
@@ -27,7 +25,9 @@ const languages = [
     { name: 'Dutch (Netherlands)', code: 'nl-NL' },
     { name: 'Korean (South Korea)', code: 'ko-KR' },
     { name: 'Polish (Poland)', code: 'pl-PL' },
-    { name: 'Russian (Russia)', code: 'ru-RU' },
+    { name: 'English (Australia)', code: 'en-AU' },
+    { name: 'English (UK)', code: 'en-GB' },
+    { name: 'English (India)', code: 'en-IN' },
     { name: 'Thai (Thailand)', code: 'th-TH' }
 ];
 
