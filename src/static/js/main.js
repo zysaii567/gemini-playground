@@ -274,7 +274,7 @@ async function connectToWebsocket() {
     const config = {
         model: CONFIG.API.MODEL_NAME,
         generationConfig: {
-            responseModalities: responseModalities,
+            responseModalities: responseTypeSelect.value,
             speechConfig: {
                 languageCode: languageSelect.value,
                 voiceConfig: { 
