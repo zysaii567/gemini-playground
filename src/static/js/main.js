@@ -268,10 +268,13 @@ async function connectToWebsocket() {
     localStorage.setItem('gemini_language', languageSelect.value);
     localStorage.setItem('system_instruction', systemInstructionInput.value);
 
+    const responseType = responseTypeSelect.value;
+    const responseModalities = responseType === 'audio' ? ['audio', 'text'] : [responseType];
+
     const config = {
         model: CONFIG.API.MODEL_NAME,
         generationConfig: {
-            responseModalities: responseTypeSelect.value,
+            responseModalities: responseModalities,
             speechConfig: {
                 languageCode: languageSelect.value,
                 voiceConfig: { 
